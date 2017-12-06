@@ -15,6 +15,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'JASMINE',
+      'JASMINE_ADAPTER',
+      'lib/angular/angular.js',
+      'test/lib/angular-mocks.js',
+      'app/app.js',
       'js/*.js'
     ],
 
@@ -33,7 +38,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    //reporters: ['progress'],
 
 
     // web server port
@@ -62,6 +67,15 @@ module.exports = function(config) {
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
 
+    reporters:['progress','html'],
+      htmlReporter: {
+        outputFile:'tests/units.html',
+
+        //Optional
+        pageTitle: 'Batch 1 Unit Tests',
+        subPageTitle: 'A sample project description',
+        useLegacyStyle: true
+      },
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
